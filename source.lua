@@ -30,6 +30,7 @@ local UIDragDetector = Instance.new("UIDragDetector")
 FlyGui.Name = "FlyGui"
 FlyGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 FlyGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+FlyGui.ResetOnSpawn = false
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = FlyGui
