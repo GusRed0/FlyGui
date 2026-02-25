@@ -247,7 +247,7 @@ function fly()
 
 	bv = Instance.new("BodyVelocity")
 	bg = Instance.new("BodyGyro")
-	
+
 	bv.Name = randomString()
 	bv.Parent = root
 	bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
@@ -266,9 +266,9 @@ function fly()
 		local camCF = workspace.CurrentCamera.CFrame
 
 		local moveDirection =
-			(camCF.LookVector * controls.F) +
-			(camCF.RightVector * controls.R) +
-			(Vector3.new(0,1,0) * controls.U)
+			(camCF.LookVector * controls.F)
+			+(camCF.RightVector * controls.R)
+			+(Vector3.new(0,1,0) * controls.U)
 
 		bv.Velocity = moveDirection * 50 * speed
 		bg.CFrame = camCF
@@ -310,7 +310,7 @@ function unfly()
 	flying = false
 	local root: Part = getRoot(player.Character)
 	local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
-	
+
 	humanoid.PlatformStand = false
 	if flyConnection then
 		flyConnection:Disconnect()
@@ -321,7 +321,7 @@ function unfly()
 	if flyKeyUp then
 		flyKeyUp:Disconnect()
 	end
-	
+
 	if root then
 		if bv then bv:Destroy() end
 		if bg then bg:Destroy() end
@@ -355,5 +355,6 @@ minimizeButton.Activated:Connect(function()
 end)
 
 closeButton.Activated:Connect(function()
+	unfly()
 	FlyGui:Destroy()
 end)
