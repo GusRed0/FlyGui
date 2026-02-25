@@ -1,127 +1,168 @@
+-- FlyGui v1.0.0
+
+-- Gui to Lua
+-- Version: 3.2
+
 -- Instances:
 
-local targetFlingv1 = Instance.new("ScreenGui")
+local FlyGui = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local Frame = Instance.new("Frame")
-local plrName = Instance.new("TextBox")
+local speed_box = Instance.new("TextBox")
+local decrease = Instance.new("TextButton")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local increase = Instance.new("TextButton")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local flyButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
 local UIPadding = Instance.new("UIPadding")
-local flingButton = Instance.new("TextButton")
-local UIPadding_2 = Instance.new("UIPadding")
+local UIGradient = Instance.new("UIGradient")
 local UICorner = Instance.new("UICorner")
 local TopBar = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
 local closeButton = Instance.new("TextButton")
 local minimizeButton = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
 local UIDragDetector = Instance.new("UIDragDetector")
 
 --Properties:
 
-targetFlingv1.Name = "targetFlingv1"
-targetFlingv1.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-targetFlingv1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+FlyGui.Name = "FlyGui"
+FlyGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+FlyGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainFrame.Name = "MainFrame"
-MainFrame.Parent = targetFlingv1
-MainFrame.Active = true
-MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Parent = FlyGui
+MainFrame.BackgroundTransparency = 1
 MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 0
-MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0.274695545, 0, 0.247524753, 0)
-MainFrame.Transparency = 1
+MainFrame.Position = UDim2.new(0.788083971, 0, 0.101969019, 0)
+MainFrame.Size = UDim2.new(0.191414997, 0, 0.208124444, 0)
+
+
 
 Frame.Parent = MainFrame
-Frame.Active = true
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+Frame.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.49999997, 0, 0.598808408, 0)
-Frame.Size = UDim2.new(0.99999994, 0, 0.802383184, 0)
+Frame.Position = UDim2.new(0.5, 0, 0.583751082, 0)
+Frame.Size = UDim2.new(1, 0, 0.832497776, 0)
 
-plrName.Name = "plrName"
-plrName.Parent = Frame
-plrName.Active = false
-plrName.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-plrName.BorderColor3 = Color3.fromRGB(0, 0, 0)
-plrName.BorderSizePixel = 0
-plrName.Position = UDim2.new(0.0467980243, 0, 0.196172252, 0)
-plrName.Selectable = false
-plrName.Size = UDim2.new(0.903940797, 0, 0.239234447, 0)
-plrName.ClearTextOnFocus = false
-plrName.Font = Enum.Font.SourceSans
-plrName.PlaceholderText = "Player name..."
-plrName.Text = ""
-plrName.TextColor3 = Color3.fromRGB(0, 0, 0)
-plrName.TextScaled = true
-plrName.TextSize = 14.000
-plrName.TextColor3 = Color3.fromRGB(255,255,255)
-plrName.TextWrapped = true
-plrName.TextXAlignment = Enum.TextXAlignment.Left
+speed_box.Name = "speed"
+speed_box.Parent = Frame
+speed_box.AnchorPoint = Vector2.new(0.5, 0.5)
+speed_box.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+speed_box.BorderColor3 = Color3.fromRGB(0, 0, 0)
+speed_box.BorderSizePixel = 0
+speed_box.Position = UDim2.new(0.5, 0, 0.25, 0)
+speed_box.Size = UDim2.new(0.17619881, 0, 0.249891028, 0)
+speed_box.Font = Enum.Font.SourceSans
+speed_box.PlaceholderText = "speed"
+speed_box.Text = ""
+speed_box.TextColor3 = Color3.fromRGB(255, 255, 255)
+speed_box.TextScaled = true
+speed_box.TextSize = 14.000
+speed_box.TextWrapped = true
 
-UIPadding.Parent = plrName
+decrease.Name = "decrease"
+decrease.Parent = Frame
+decrease.AnchorPoint = Vector2.new(0.5, 0.5)
+decrease.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+decrease.BorderColor3 = Color3.fromRGB(0, 0, 0)
+decrease.BorderSizePixel = 0
+decrease.Position = UDim2.new(0.328000009, 0, 0.25, 0)
+decrease.Size = UDim2.new(0.104007892, 0, 0.267595053, 0)
+decrease.Font = Enum.Font.Ubuntu
+decrease.Text = "-"
+decrease.TextColor3 = Color3.fromRGB(255, 255, 255)
+decrease.TextScaled = true
+decrease.TextSize = 14.000
+decrease.TextWrapped = true
+
+UIAspectRatioConstraint.Parent = decrease
+
+increase.Name = "increase"
+increase.Parent = Frame
+increase.AnchorPoint = Vector2.new(0.5, 0.5)
+increase.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+increase.BorderColor3 = Color3.fromRGB(0, 0, 0)
+increase.BorderSizePixel = 0
+increase.Position = UDim2.new(0.661677003, 0, 0.249755323, 0)
+increase.Size = UDim2.new(0.104007892, 0, 0.267595053, 0)
+increase.Font = Enum.Font.Ubuntu
+increase.Text = "+"
+increase.TextColor3 = Color3.fromRGB(255, 255, 255)
+increase.TextScaled = true
+increase.TextSize = 14.000
+increase.TextWrapped = true
+
+UIAspectRatioConstraint_2.Parent = increase
+
+flyButton.Name = "flyButton"
+flyButton.Parent = Frame
+flyButton.AnchorPoint = Vector2.new(0.5, 0.5)
+flyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+flyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+flyButton.BorderSizePixel = 0
+flyButton.Position = UDim2.new(0.5, 0, 0.699999988, 0)
+flyButton.Size = UDim2.new(0.445324928, 0, 0.237862259, 0)
+flyButton.Font = Enum.Font.SourceSans
+flyButton.Text = ""
+flyButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+flyButton.TextSize = 14.000
+
+TextLabel.Parent = flyButton
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel.Size = UDim2.new(1, 0, 1, 0)
+TextLabel.Font = Enum.Font.Arial
+TextLabel.Text = "Fly"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+UIPadding.Parent = TextLabel
 UIPadding.PaddingBottom = UDim.new(0.200000003, 0)
-UIPadding.PaddingLeft = UDim.new(0.0199999996, 0)
+UIPadding.PaddingLeft = UDim.new(0.200000003, 0)
+UIPadding.PaddingRight = UDim.new(0.200000003, 0)
 UIPadding.PaddingTop = UDim.new(0.200000003, 0)
 
-flingButton.Name = "flingButton"
-flingButton.Parent = Frame
-flingButton.BackgroundColor3 = Color3.fromRGB(0, 141, 0)
-flingButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-flingButton.BorderSizePixel = 0
-flingButton.Position = UDim2.new(0.253694564, 0, 0.588516772, 0)
-flingButton.Size = UDim2.new(0.492610812, 0, 0.239234447, 0)
-flingButton.Font = Enum.Font.SourceSans
-flingButton.Text = "Fling"
-flingButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-flingButton.TextScaled = true
-flingButton.TextSize = 14.000
-flingButton.TextWrapped = true
-
-UIPadding_2.Parent = flingButton
-UIPadding_2.PaddingBottom = UDim.new(0.100000001, 0)
-UIPadding_2.PaddingTop = UDim.new(0.100000001, 0)
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 106, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(44, 121, 23))}
+UIGradient.Rotation = 72
+UIGradient.Parent = flyButton
 
 UICorner.CornerRadius = UDim.new(0.200000003, 0)
-UICorner.Parent = flingButton
+UICorner.Parent = flyButton
 
 TopBar.Name = "TopBar"
 TopBar.Parent = MainFrame
-TopBar.Active = true
 TopBar.AnchorPoint = Vector2.new(0.5, 0)
-TopBar.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+TopBar.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
 TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TopBar.BorderSizePixel = 0
-TopBar.Position = UDim2.new(0.504999995, -2, 0, 0)
-TopBar.Size = UDim2.new(0.99999994, 0, 0.197616875, 0)
+TopBar.Position = UDim2.new(0.5, 0, 1.51077117e-07, 0)
+TopBar.Size = UDim2.new(1, 0, 0.16750209, 0)
 
-Title.Name = "Title"
-Title.Parent = TopBar
-Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Title.BackgroundTransparency = 1.000
-Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Title.BorderSizePixel = 0
-Title.Position = UDim2.new(0.0147783253, 0, 0.131625921, 0)
-Title.Size = UDim2.new(0.41625616, 0, 0.713269234, 0)
-Title.Font = Enum.Font.SourceSans
-Title.Text = "Target fling v1"
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextScaled = true
-Title.TextSize = 14.000
-Title.TextWrapped = true
+UIDragDetector.Parent = MainFrame
+UIDragDetector.BoundingUI = TopBar
 
 closeButton.Name = "closeButton"
 closeButton.Parent = TopBar
 closeButton.AnchorPoint = Vector2.new(0, 0.5)
 closeButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
-closeButton.BackgroundTransparency = 0.250
 closeButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 closeButton.BorderSizePixel = 0
-closeButton.Position = UDim2.new(0.891241372, 0, 0.5, 0)
-closeButton.Size = UDim2.new(0.0960591137, 0, 0.69797194, 0)
+closeButton.Position = UDim2.new(0.879965246, 0, 0.500000238, 0)
+closeButton.Size = UDim2.new(0.0980392173, 0, 0.689756513, 0)
 closeButton.Font = Enum.Font.Ubuntu
-closeButton.Text = "x"
+closeButton.Text = "X"
 closeButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 closeButton.TextScaled = true
 closeButton.TextSize = 14.000
@@ -131,11 +172,10 @@ minimizeButton.Name = "minimizeButton"
 minimizeButton.Parent = TopBar
 minimizeButton.AnchorPoint = Vector2.new(0, 0.5)
 minimizeButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
-minimizeButton.BackgroundTransparency = 0.250
 minimizeButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 minimizeButton.BorderSizePixel = 0
-minimizeButton.Position = UDim2.new(0.775477827, 0, 0.5, 0)
-minimizeButton.Size = UDim2.new(0.0960591137, 0, 0.69797194, 0)
+minimizeButton.Position = UDim2.new(0.768854141, 0, 0.500000238, 0)
+minimizeButton.Size = UDim2.new(0.0980392173, 0, 0.689756513, 0)
 minimizeButton.Font = Enum.Font.Ubuntu
 minimizeButton.Text = "-"
 minimizeButton.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -143,34 +183,43 @@ minimizeButton.TextScaled = true
 minimizeButton.TextSize = 14.000
 minimizeButton.TextWrapped = true
 
-UIDragDetector.Parent = MainFrame
-UIDragDetector.BoundingUI = TopBar
+Title.Name = "Title"
+Title.Parent = TopBar
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.331484407, 0, 0.118903302, 0)
+Title.Size = UDim2.new(0.336203933, 0, 0.689756513, 0)
+Title.Font = Enum.Font.Arial
+Title.Text = "Fly gui v1"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+UIAspectRatioConstraint_3.Parent = MainFrame
+UIAspectRatioConstraint_3.AspectRatio = 1.640
 
 local RunService = game:GetService("RunService")
-local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
 
+local flying = false
+local speed = 1
 local player = game.Players.LocalPlayer
-local flinging = false
 
-local mouse = player:GetMouse()
-
--- close and minimize buttons
-minimizeButton.Activated:Connect(function()
-	Frame.Visible = not Frame.Visible
-	minimizeButton.Text = if Frame.Visible then "-" else "+"
-end)
-
-closeButton.Activated:Connect(function()
-	targetFlingv1:Destroy()
-end)
-
--- fling system
-
-function getRoot(char): BasePart
+function getRoot(char)
 	if char and char:FindFirstChildOfClass("Humanoid") then
 		return char:FindFirstChildOfClass("Humanoid").RootPart
 	else
 		return nil
+	end
+end
+
+function transformText()
+	local text = speed_box.Text
+	if not tonumber(text) then
+		speed_box.Text = "1"
 	end
 end
 
@@ -183,130 +232,127 @@ function randomString()
 	return table.concat(array)
 end
 
-function noclip()
-	wait(0.1)
-	local function NoclipLoop()
-		if player.Character ~= nil then
-			for _, child in pairs(player.Character:GetDescendants()) do
-				if child:IsA("BasePart") and child.CanCollide == true then
-					child.CanCollide = false
-				end
-			end
-		end
-	end
-	Noclipping = RunService.Stepped:Connect(NoclipLoop)
+function syncSpeed()
+	speed = tonumber(speed_box.Text) or 1
 end
 
-function unnoclip()
-	if Noclipping then
-		Noclipping:Disconnect()
-	end
-	task.wait(.1)
+function fly()
+	if flying then return end
+	flying = true
+	local root = getRoot(player.Character)
+	local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
 
-	if player.Character ~= nil then
-		for _, child in pairs(player.Character:GetDescendants()) do
-			if child:IsA("BasePart") and child.CanCollide == false then
-				child.CanCollide = true
-			end
-		end
+	humanoid.PlatformStand = true
+
+	bv = Instance.new("BodyVelocity")
+	bg = Instance.new("BodyGyro")
+	
+	bv.Name = randomString()
+	bv.Parent = root
+	bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+	bv.Velocity = Vector3.zero
+
+	bg.Name = randomString()
+	bg.Parent = root
+	bg.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+	bg.P = 10000
+	bg.D = 1000
+	bg.CFrame = workspace.CurrentCamera.CFrame
+
+	local controls = {F = 0, R = 0, U = 0}
+
+	local function flyLoop()
+		local camCF = workspace.CurrentCamera.CFrame
+
+		local moveDirection =
+			(camCF.LookVector * controls.F) +
+			(camCF.RightVector * controls.R) +
+			(Vector3.new(0,1,0) * controls.U)
+
+		bv.Velocity = moveDirection * 50 * speed
+		bg.CFrame = camCF
 	end
+
+	flyConnection = RunService.Stepped:Connect(flyLoop)
+
+	flyKeyDown = UIS.InputBegan:Connect(function(input, processed)
+		if processed then return end
+
+		if input.KeyCode == Enum.KeyCode.W then
+			controls.F = 1
+		elseif input.KeyCode == Enum.KeyCode.S then
+			controls.F = -1
+		elseif input.KeyCode == Enum.KeyCode.D then
+			controls.R = 1
+		elseif input.KeyCode == Enum.KeyCode.A then
+			controls.R = -1
+		elseif input.KeyCode == Enum.KeyCode.E then
+			controls.U = 1
+		elseif input.KeyCode == Enum.KeyCode.Q then
+			controls.U = -1
+		end
+	end)
+
+	flyKeyUp = UIS.InputEnded:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode.W or input.KeyCode == Enum.KeyCode.S then
+			controls.F = 0
+		elseif input.KeyCode == Enum.KeyCode.D or input.KeyCode == Enum.KeyCode.A then
+			controls.R = 0
+		elseif input.KeyCode == Enum.KeyCode.E or input.KeyCode == Enum.KeyCode.Q then
+			controls.U = 0
+		end
+	end)
 end
 
-function stopFling()
-	flinging = false
-	wait(.1)
-	local speakerChar = player.Character
-	if not speakerChar or not getRoot(speakerChar) then return end
-	bav:Destroy()
-	for _, child in pairs(speakerChar:GetDescendants()) do
-		if child.ClassName == "Part" or child.ClassName == "MeshPart" then
-			child.CustomPhysicalProperties = PhysicalProperties.new(0.7, 0.3, 0.5)
-		end
+function unfly()
+	if not flying then return end
+	flying = false
+	local root: Part = getRoot(player.Character)
+	local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+	
+	humanoid.PlatformStand = false
+	if flyConnection then
+		flyConnection:Disconnect()
 	end
-
-	Noclipping:Disconnect()
-end
-
-function startFling()
-	local target: Player = game.Players:FindFirstChild(plrName.Text)
-
-	if not target then
-		for index, p in pairs(Players:GetPlayers()) do
-			if p.DisplayName == plrName.Text then
-				target = p
-			end
-		end
+	if flyKeyDown then
+		flyKeyDown:Disconnect()
 	end
-	if target then
-		local originalPosition = getRoot(player.Character).Position
-
-		noclip()
-
-		player.Character:MoveTo(target.Character.HumanoidRootPart.Position)
-
-		flinging = false
-		for _, child in pairs(player.Character:GetDescendants()) do
-			if child:IsA("BasePart") then
-				child.CustomPhysicalProperties = PhysicalProperties.new(100, 0.3, 0.5)
-			end
-		end
-		wait(.1)
-		bav = Instance.new("BodyAngularVelocity")
-		bav.Name = randomString()
-		bav.Parent = getRoot(player.Character)
-		bav.AngularVelocity = Vector3.new(0,99999,0)
-		bav.MaxTorque = Vector3.new(0,math.huge,0)
-		bav.P = math.huge
-		local Char = player.Character:GetChildren()
-		
-		for i, v in next, Char do
-			if v:IsA("BasePart") then
-				v.CanCollide = false
-				v.Massless = true
-				v.Velocity = Vector3.new(0, 0, 0)
-			end
-		end
-		flinging = true
-
-		local function flingDied()
-			stopFling()
-			unnoclip()
-			flingDied:Disconnect()
-		end
-
-		flingDied = player.Character:FindFirstChildOfClass('Humanoid').Died:Connect(flingDied)
-		task.spawn(function()
-			repeat
-				bav.AngularVelocity = Vector3.new(0,99999,0)
-				wait(.2)
-				bav.AngularVelocity = Vector3.new(0,0,0)
-				wait(.1)
-			until flinging == false
-		end)
-
-		task.wait(1)
-		flinging = false
-		stopFling()
-		unnoclip()
-		player.Character:MoveTo(originalPosition)
-
+	if flyKeyUp then
+		flyKeyUp:Disconnect()
+	end
+	
+	if root then
+		if bv then bv:Destroy() end
+		if bg then bg:Destroy() end
 	end
 end
 
--- auto write player names
+flyButton.Activated:Connect(function()
+	if flying then unfly() else fly() end
+end)
 
-function autoFillName ()
-	local target = mouse.Target
-	if target then
-		local ch = target:FindFirstAncestorOfClass("Model")
-		if ch then
-			local p = Players:GetPlayerFromCharacter(ch)
-			if p then
-				plrName.Text = p.Name
-			end
-		end
-	end
-end
+increase.Activated:Connect(function()
+	transformText()
+	speed_box.Text = tonumber(speed_box.Text) + 1
+	syncSpeed()
+end)
 
-flingButton.Activated:Connect(startFling)
-mouse.Button2Down:Connect(autoFillName)
+decrease.Activated:Connect(function()
+	transformText()
+	speed_box.Text = tonumber(speed_box.Text) - 1
+	syncSpeed()
+end)
+
+speed_box.FocusLost:Connect(function()
+	transformText()
+	syncSpeed()
+end)
+
+minimizeButton.Activated:Connect(function()
+	Frame.Visible = not Frame.Visible
+	minimizeButton.Text = Frame.Visible and "-" or "+"
+end)
+
+closeButton.Activated:Connect(function()
+	FlyGui:Destroy()
+end)
