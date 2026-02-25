@@ -5,3 +5,7 @@ Script:
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/GusRed0/FlyGui/refs/heads/main/source.lua"))()
 ```
+
+# Update Log
+## 1.1.0
+• Implemented a random string generation system for object naming to reduce detection predictability
