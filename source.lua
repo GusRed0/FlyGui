@@ -41,8 +41,6 @@ MainFrame.BorderSizePixel = 0
 MainFrame.Position = UDim2.new(0.788083971, 0, 0.101969019, 0)
 MainFrame.Size = UDim2.new(0.191414997, 0, 0.208124444, 0)
 
-
-
 Frame.Parent = MainFrame
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 Frame.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
@@ -135,7 +133,7 @@ UIPadding.PaddingLeft = UDim.new(0.200000003, 0)
 UIPadding.PaddingRight = UDim.new(0.200000003, 0)
 UIPadding.PaddingTop = UDim.new(0.200000003, 0)
 
-UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 106, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(44, 121, 23))}
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 106, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(43, 116, 22))}
 UIGradient.Rotation = 72
 UIGradient.Parent = flyButton
 
@@ -201,6 +199,15 @@ Title.TextWrapped = true
 
 UIAspectRatioConstraint_3.Parent = MainFrame
 UIAspectRatioConstraint_3.AspectRatio = 1.640
+
+local GradientColor_1 = ColorSequence.new{
+	ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 106, 0)),
+	ColorSequenceKeypoint.new(1.00, Color3.fromRGB(43, 116, 22))
+}
+local GradientColor_2 = ColorSequence.new{
+	ColorSequenceKeypoint.new(0.00, Color3.fromRGB(189, 0, 0)),
+	ColorSequenceKeypoint.new(1.00, Color3.fromRGB(116, 0, 0))
+}
 
 local RunService = game:GetService("RunService")
 local UIS = game:GetService("UserInputService")
@@ -329,7 +336,10 @@ function unfly()
 end
 
 flyButton.Activated:Connect(function()
+	TextLabel.Text = flying and "Fly" or "Unfly"
+	UIGradient.Color = flying and GradientColor_1 or GradientColor_2
 	if flying then unfly() else fly() end
+	
 end)
 
 increase.Activated:Connect(function()

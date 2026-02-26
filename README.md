@@ -9,3 +9,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/GusRed0/FlyGui/refs/h
 # Update Log
 ## 1.1.0
 • Implemented a random string generation system for object naming to reduce detection predictability
+## 1.2.0
+• The fly button now changes color
+• Now you stop flying when you close FlyGui
